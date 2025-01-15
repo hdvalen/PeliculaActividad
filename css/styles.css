@@ -43,7 +43,7 @@ button {
 }
 /* Entrada de texto en la barra de búsqueda */
 input {
-    flex: 1;
+    flex: 1;    
     max-height: 2.5rem;
     border: 0;
     outline: 0;
@@ -102,7 +102,7 @@ input {
         font-size: 0.8rem; /* Reducir el tamaño de fuente en móviles */
     }
 }
-
+/* Boton de Buscar*/
 /*titulo principal*/
 
 .tittle{

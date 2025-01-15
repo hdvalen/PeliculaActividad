@@ -1,24 +1,5 @@
 export const SearchList = [ 
-    "Batman Begins",
-    "The Dark Knight",
-    "The Dark Knight Rises",
-    "Superman: Man of Steel",
-    "Batman v Superman: Dawn of Justice",
-    "Wonder Woman",
-    "Justice League",
-    "Aquaman",
-    "Shazam",
-    "Birds of Prey",
-    "Wonder Woman ",
-    "The Suicide Squad",
-    "Zack Snyder's Justice League",
-    "The Flash",
-    "Black Adam",
-    "Superman II",
-    "Superman Returns",
-    "The Lego Batman Movie",
-    "Teen Titans Go! To the Movies",
-    "Green Lantern"
+    
 ]
 
 const resultBox = document.querySelector(
