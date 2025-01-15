@@ -1,0 +1,98 @@
+
+/* Estilos de el buscador */
+
+:root {
+    --bg: #F0F0F0;
+    --input-bg: white;
+    --text: #27292B;
+    --item-hover: #f6f6f6;
+}
+
+.search-bar {
+    margin-left: 10px;
+}
+/* Contenedor de la caja de búsqueda */
+.search-box {
+    margin-top: 4rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    background: var(--input-bg);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    max-width: 81rem; /* Tamaño  en pantalla grande */
+    width: 95%;
+    height: fit-content;
+    box-shadow: rgb(149, 157, 168, 0.2) 0px 8px 24px;  /* Sombra suave */
+}
+/* Fila para alinear elementos */
+.row {
+    display: flex;
+    align-items: center;
+}
+/* Botón sin estilos de fondo ni borde */
+button {
+    background: transparent;
+    border: 0;
+    outline: 0;
+}
+/* Entrada de texto en la barra de búsqueda */
+input {
+    flex: 1;
+    max-height: 2.5rem;
+    border: 0;
+    outline: 0;
+    font-size: 1rem;
+    color: var(--text);
+}
+/* Icono de la caja de búsqueda */
+.search-box svg {
+    stroke: var(--text); /* Color del borde del icono */
+}
+/* Contenedor de resultados con altura máxima y desplazamiento */
+.results {
+    max-height: 20rem;
+    overflow: auto;
+}
+/* Lista de resultados */
+.results ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.25rem; /* Separación entre elementos */
+}
+/* Estilos de cada elemento de resultado */
+.results ul li {
+    list-style: none;
+    border-radius: 0.25rem;
+    padding: 1rem 0.75rem;
+}
+/* Efecto hover para elementos de resultado */
+.results ul li:hover {
+    background: var(--item-hover); /* Color de fondo */
+    border-radius: 0.25rem;
+}
+
+/* Ajustes para pantalla mediana */
+@media (max-width: 768px) {
+    .search-box {
+        max-width: 81rem; 
+        padding: 0.5rem;
+    }
+}
+
+/* Ajustes para pantalla pequeña */
+@media (max-width: 480px) {
+    .search-box {
+        max-width: 20rem; 
+        width: 90%; 
+        padding: 0.5rem;
+        margin: auto; 
+        margin-top: 2rem; 
+    }
+
+    input {
+        font-size: 0.8rem; /* Reducir el tamaño de fuente en móviles */
+    }
+}
