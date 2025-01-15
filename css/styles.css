@@ -20,7 +20,7 @@ body{
 /* Contenedor de la caja de búsqueda */
 .search-box {
     margin-top: 4rem;
-    margin-left: 14rem;
+    margin-left: 1rem;
     margin-right: 2rem;
     background: var(--input-bg);
     border-radius: 0.5rem;
@@ -106,7 +106,7 @@ input {
 /*titulo principal*/
 
 .tittle{
-    margin-left: 850px;
+    margin-left: 600px;
     margin-top: 20px;
     font-size: 70px;
 }
