@@ -1,3 +1,4 @@
+/* 19 peliculas */
 export const peliculas =[
         {
             titulo: "Batman Begins",
@@ -79,15 +80,7 @@ export const peliculas =[
             reparto: "Margot Robbie, Mary Elizabeth Winstead, Jurnee Smollett-Bell",
             FechaLanzamiento: " de febrero de 2020"
         },
-        {
-            titulo: "Wonder Woman ",
-            descripcion: "Diana enfrenta a nuevos villanos en los años 80, mientras lucha por salvar el mundo.",
-            genero: "Fantasía",
-            duracion: "151 minutos",
-            reparto: "Gal Gadot, Chris Pine, Kristen Wiig",
-            FechaLanzamiento: "25 de diciembre de 2020"
-        },
-        {
+        {/*falta imagen*/
             titulo: "The Suicide Squad",
             descripcion: "Un grupo de villanos es reclutado por el gobierno para misiones suicidas con pocas probabilidades de éxito.",
             genero: "Crimen",
