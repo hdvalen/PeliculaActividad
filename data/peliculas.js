@@ -6,7 +6,8 @@ export const peliculas =[
             genero: "Superhéroes",
             duracion: "140 minutos",
             reparto: "Christian Bale, Michael Caine, Liam Neeson",
-            FechaLanzamiento: "15 de junio de 2005"
+            FechaLanzamiento: "15 de junio de 2005",
+            image:"../images/batman begins.jpg"
         },
         {
             titulo: "The Dark Knight",
@@ -14,7 +15,8 @@ export const peliculas =[
             genero: "Superhéroes",
             duracion: "152 minutos",
             reparto: "Christian Bale, Heath Ledger, Aaron Eckhart",
-            FechaLanzamiento: "8 de julio de 2008"
+            FechaLanzamiento: "8 de julio de 2008",
+            image:"../images/The Dark Knight.jpg"
         },
         {
             titulo: "The Dark Knight Rises",
@@ -22,7 +24,8 @@ export const peliculas =[
             genero: "Superhéroes",
             duracion: "164 minutos",
             reparto: "Christian Bale, Tom Hardy, Anne Hathaway",
-            FechaLanzamiento: "20 de julio de 2012"
+            FechaLanzamiento: "20 de julio de 2012",
+            image:"../images/The Dark Knight Rises.jpg"
         },
         {
             titulo: "Superman: Man of Steel",

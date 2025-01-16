@@ -102,11 +102,38 @@ input {
         font-size: 0.8rem; /* Reducir el tamaño de fuente en móviles */
     }
 }
-/* Boton de Buscar*/
+
 /*titulo principal*/
 
 .tittle{
-    margin-left: 600px;
+    margin-left: 550px;
     margin-top: 20px;
     font-size: 70px;
+}
+
+/* containers Movies*/
+.tittle1{
+    margin-left: 320px;
+}
+.card {
+    color: #000000;
+    background-color: #cfcbc5d3;
+    margin: 0.5rem; /* Agrega espacio entre tarjetas */
+    text-align: center;
+    padding: 5px;
+
+}
+
+.cards__movies{
+    background: #f1f1ed;
+    padding: 2rem;
+}
+.movie__title{
+    font-size: x-large;
+}
+.img-fluid{
+    width: 100%;
+    height: auto; /* Mantén la proporción de las imágenes */
+    max-height: 200px; /* Limita la altura */
+    object-fit: cover;
 }

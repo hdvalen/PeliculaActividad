@@ -1,65 +1,58 @@
-import { peliculas } from "../data/peliculas"; // Importa las películas
+import { peliculas } from "../data/peliculas.js";
 
-// Función que busca títulos de películas basados en un término de búsqueda
-export const SearchList = (TermBusqueda = '') => {
-    return peliculas // Usa directamente el array importado
-        .filter(({ titulo }) => 
-            titulo.toLowerCase().includes(TermBusqueda.toLowerCase())
-        )
-        .map(({ titulo }) => titulo);
-};
+//En este modulo se desarrollará la barra de búsqueda
+//Posibles resultados de búsqueda
+export const SearchList = (peliculas, searchTerm = '') => {
+    let movieName = [];
+    for (const {titulo} of peliculas) {
+        if (titulo.toLowerCase().includes(searchTerm.toLowerCase())) {
+            movieName.push(titulo);
+        }
+    }
+    return movieName;
+}
 
-// Elementos del DOM
-export const resultBox = document.querySelector(".results"); // Resultados de búsqueda
+export const resultBox = document.querySelector(".results"); //Resultados de búsqueda
 export const inputBox = document.querySelector(".search-bar"); // Campo de entrada de texto
-export const movieInfo = document.getElementById("movieInfo"); // Información de la película seleccionada
+export const movieInfo = document.getElementById("movieInfo");
 
-// Función que representa los resultados de búsqueda como una lista de elementos 'li'
+
+//Representa resultados de búsqueda
 export const displayResults = function (result) { 
-    // Crea una lista HTML a partir de los resultados, cada título de película se convierte en un 'li'
-    const resultHTML = result.map(function (movieInfo) {
-        return `<li onclick="selectInput('${movieInfo}')">${movieInfo}</li>`;
-    });
-    // Inserta los resultados en el contenedor de resultados
-    resultBox.innerHTML = '<ul>' + resultHTML.join("") + '</ul>';
+    const resultHTML = result.map(function (movieInfo) {return `<li onclick="selectInput('${movieInfo}')">${movieInfo}</li>`;});
+    resultBox.innerHTML = '<ul>' + resultHTML.join ("") + '</ul>';
 };
-
-// Detecta la pulsación sobre la barra de búsqueda (evento 'keyup')
+// Detecta la pulsación sobre la barra de búsqueda
 inputBox.onkeyup = function (e) {
     let result = [];
-    // Convierte el texto del input a minúsculas para hacer la búsqueda insensible a mayúsculas
     const input = inputBox.value.toLowerCase();
     
-    // Si el campo de entrada está vacío, borra los resultados
     if (input.length === 0) {
         resultBox.innerHTML = "";
         return;
     }
     
-    // Filtra las películas usando la función SearchList
-    result = SearchList(input); // Ahora pasa 'input' como argumento
-    
-    // Muestra los resultados filtrados
-    displayResults(result);
+    if (input.length) {
+        result = SearchList(peliculas, '').filter ((movieInfo) => {return movieInfo.toLowerCase().includes(input);});
+        
+        displayResults(result);
+    }
 };
 
-// Función que busca y retorna la información de la película que tiene una descripción específica
+//FIXME
 export const moviesInfo = (description) => {
-    return peliculas.find((pelicula) => pelicula.description === description); // Encuentra la película por descripción
+    return peliculas.find((pelicula) => pelicula.description === description);
 }
 
-// Función que maneja la selección de una película de la lista de resultados
 export function selectInput(item) {
-    const selected = item.innerText; // Obtiene el título de la película seleccionada
-    inputBox.value = selected; // Rellena el campo de entrada con el título seleccionado
-    resultBox.innerHTML = ""; // Limpia la lista de resultados
+    const selected = item.innerText;
+    inputBox.value = selected;
+    resultBox.innerHTML = "";
 
-    // Si la película seleccionada tiene información asociada, muestra su descripción
-    const movie = moviesInfo(selected); // Busca la película seleccionada
-    if (movie) {
-        movieInfo.textContent = `${movie.description}`; // Muestra la descripción de la película
-        movieInfo.style.display = "block"; // Asegura que el texto de la descripción sea visible
+    if (moviesInfo[selected]) {
+        movieInfo.textContent = `${moviesInfo[selected]}`;
+        movieInfo.style.display = "block";
     } else {
-        movieInfo.style.display = "none"; // Si no hay información, oculta el texto
+        bookText.style.display = "none";
     }
 }
