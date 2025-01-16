@@ -41,7 +41,7 @@ inputBox.onkeyup = function (e) {
 
 //FIXME
 export const moviesInfo = (description) => {
-    return peliculas.find((pelicula) => pelicula.description === description);
+    return peliculas.find((peliculas) => peliculas.description === description);
 }
 
 export function selectInput(item) {

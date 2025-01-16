@@ -7,11 +7,12 @@ body{
 }
 /* Estilos de el buscador */
 
+/* Variables de color para el tema general */
 :root {
-    --bg: #ffffff;
-    --input-bg: #ffffff;
+    --bg: #F0F0F0;
+    --input-bg: white;
     --text: #27292B;
-    --item-hover: #ffffff;
+    --item-hover: #f6f6f6;
 }
 
 .search-bar {
@@ -20,30 +21,32 @@ body{
 /* Contenedor de la caja de búsqueda */
 .search-box {
     margin-top: 4rem;
-    margin-left: 1rem;
+    margin-left: 2rem;
     margin-right: 2rem;
     background: var(--input-bg);
     border-radius: 0.5rem;
     padding: 0.75rem;
     max-width: 81rem; /* Tamaño  en pantalla grande */
     width: 95%;
-    height: fit-content;
-    box-shadow: #8c939e33 0px 8px 24px;  /* Sombra suave */
+    height: 50px;
+    box-shadow: rgb(149, 157, 168, 0.2) 0px 8px 24px;  /* Sombra suave */
 }
 /* Fila para alinear elementos */
 .row {
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 /* Botón sin estilos de fondo ni borde */
-button {
+.buscarbtn {
     background: transparent;
     border: 0;
     outline: 0;
+    width: 30px;
 }
 /* Entrada de texto en la barra de búsqueda */
 input {
-    flex: 1;    
+    flex: 1;
     max-height: 2.5rem;
     border: 0;
     outline: 0;
@@ -108,32 +111,5 @@ input {
 .tittle{
     margin-left: 550px;
     margin-top: 20px;
-    font-size: 70px;
-}
-
-/* containers Movies*/
-.tittle1{
-    margin-left: 320px;
-}
-.card {
-    color: #000000;
-    background-color: #cfcbc5d3;
-    margin: 0.5rem; /* Agrega espacio entre tarjetas */
-    text-align: center;
-    padding: 5px;
-
-}
-
-.cards__movies{
-    background: #f1f1ed;
-    padding: 2rem;
-}
-.movie__title{
-    font-size: x-large;
-}
-.img-fluid{
-    width: 100%;
-    height: auto; /* Mantén la proporción de las imágenes */
-    max-height: 200px; /* Limita la altura */
-    object-fit: cover;
+    font-size: 60px;
 }

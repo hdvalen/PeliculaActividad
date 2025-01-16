@@ -1,0 +1,29 @@
+
+/* containers Movies*/
+.tittle1{
+    margin-left: 600px;
+    margin-top: 20px;
+}
+.card {
+    color: #000000;
+    background-color: #cfcbc5d3;
+    margin: 0.5rem; /* Agrega espacio entre tarjetas */
+    text-align: center;
+    padding: 5px;
+}
+.btn{
+    background-color: #b3b3e2;
+}
+.cards__movies{
+    background: #f1f1ed;
+    padding: 2rem;
+}
+.movie__title{
+    font-size: x-large;
+}
+.img-fluid{
+    width: 100%;
+    height: auto; /* Mantén la proporción de las imágenes */
+    max-height: 200px; /* Limita la altura */
+    object-fit: cover;
+}
