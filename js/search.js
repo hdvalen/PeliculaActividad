@@ -7,61 +7,93 @@ export const SearchList = (peliculas, searchTerm = '') => {
     );
 };
 
-// Mostrar resultados de búsqueda
+// Elementos del DOM
+export const resultBox = document.querySelector(".results"); // Resultados de búsqueda
+export const inputBox = document.querySelector(".search-bar"); // Campo de entrada de texto
+export const movieInfoModal = document.getElementById("movieInfoModal"); // Modal de información
+export const movieDetails = document.getElementById("movieDetails"); // Detalles de la película
+
+// Representar resultados de búsqueda
 export const displayResults = (results) => {
-    const resultBox = document.querySelector(".results");
-    const resultHTML = results
-        .map((movie) => `<li data-title="${movie.titulo}">${movie.titulo}</li>`)
-        .join('');
-    resultBox.innerHTML = `<ul>${resultHTML}</ul>`;
-    attachClickEvent(); // Agregar evento a cada resultado
-};
-
-// Mostrar información de la película en un modal
-export const showMovieDetails = (movie) => {
-    const modal = document.getElementById("movieInfoModal");
-    const modalContent = document.getElementById("movieDetails");
-    modalContent.innerHTML = `
-        <h3>${movie.titulo}</h3>
-        <p><strong>Descripción:</strong> ${movie.descripcion}</p>
-        <p><strong>Reparto:</strong> ${movie.reparto.join(", ")}</p>
-        <p><strong>Duración:</strong> ${movie.duracion}</p>
-        <p><strong>Género:</strong> ${movie.genero}</p>
-        <p><strong>Fecha de lanzamiento:</strong> ${movie.fechaLanzamiento}</p>
-    `;
-    modal.style.display = "flex";
-
-    // Cerrar el modal al hacer clic en la "x" o fuera del contenido
-    const closeModal = () => {
-        modal.style.display = "none";
-    };
-
-    document.querySelector(".close").onclick = closeModal;
-    modal.onclick = (e) => {
-        if (e.target === modal) closeModal();
-    };
-};
-
-// Agregar evento a cada resultado
-const attachClickEvent = () => {
-    const results = document.querySelectorAll(".results li");
-    results.forEach((item) => {
-        item.addEventListener("click", (e) => {
-            const movieTitle = e.target.getAttribute("data-title");
-            const selectedMovie = peliculas.find((movie) => movie.titulo === movieTitle);
-            if (selectedMovie) showMovieDetails(selectedMovie);
+    resultBox.innerHTML = `
+        <ul>
+            ${results
+                .map(({ titulo }) => `<li class="result-item" data-title="${titulo}">${titulo}</li>`)
+                .join("")}
+        </ul>`;
+    
+    // Agregar evento de clic a cada elemento de la lista
+    document.querySelectorAll('.result-item').forEach(item => {
+        item.addEventListener('click', (event) => {
+            const titulo = event.target.getAttribute('data-title');
+            showMovieDetails(titulo);
         });
     });
 };
 
-// Lógica de búsqueda
-const inputBox = document.querySelector(".search-bar");
-inputBox.onkeyup = function () {
-    const searchTerm = inputBox.value.trim();
-    if (searchTerm === '') {
-        document.querySelector(".results").innerHTML = '';
+// Detecta la pulsación sobre la barra de búsqueda
+inputBox.addEventListener('keyup', () => {
+    const input = inputBox.value.trim().toLowerCase();
+
+    if (!input) {
+        resultBox.innerHTML = "";
         return;
     }
-    const results = SearchList(peliculas, searchTerm);
+
+    const results = SearchList(peliculas, input);
     displayResults(results);
+});
+
+// Mostrar información de una película en el modal
+
+export const showMovieDetails = (titulo, reparto, duracion, genero, fechaLanzamiento)  => {
+    const movie = peliculas.find((pelicula) => pelicula.titulo.toLowerCase() === titulo.toLowerCase());
+    if (movie) {
+        console.log("Se hizo clic en:", movie.titulo);
+        console.log("Información de la película:", movie);
+
+        movieDetails.innerHTML = `
+            <div class="movie-details">
+                <div>
+                <img src="${movie.image}" alt="${movie.titulo}" class="movie-image">
+                </div>
+                <div class="movie-info">
+                    <h3>${movie.titulo}</h3>
+                    <p><strong>Descripción:</strong> ${movie.descripcion}</p>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn1" data-bs-toggle="modal" data-bs-target="#movieModal" 
+                        onclick="fillModal('')">
+                        Ver mas
+                    </button>
+                </div>
+            </div>
+        `;
+        movieInfoModal.style.display = "flex";
+
+       
+
+        // Cerrar el modal
+        const closeModal = () => {
+            movieInfoModal.style.display = "none";
+        };
+        document.querySelector(".close").onclick = closeModal;
+        movieInfoModal.onclick = (e) => {
+            if (e.target === movieInfoModal) closeModal();
+        };
+    }
+};
+window.fillModal = (titulo, reparto, duracion, genero, fechaLanzamiento) => {
+    const modalTitle = document.getElementById('movieModalLabel');
+    const modalBody = document.querySelector('.modal-body');
+
+    modalTitle.textContent = titulo;
+    modalBody.innerHTML = `
+
+        <p><strong>Reparto:</strong> ${reparto}</p>
+        <p><strong>Duración:</strong> ${duracion} minutos</p>
+        <p><strong>Género:</strong> ${genero}</p>
+        <p><strong>Fecha de lanzamiento:</strong> ${fechaLanzamiento}</p>
+        
+    `;
 };

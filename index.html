@@ -12,6 +12,7 @@
 </head>
 <body>
     <h1 class="tittle">CineBox</h1>
+    <!--Busqueda-->
     <div class="search-box">
         <div class="row">
             <input type="text" class="search-bar" placeholder="Buscar Pelicula" autocomplete="off">
@@ -19,6 +20,15 @@
         </div>
         <div class="results"></div>
     </div>
+  <!-- Modal de detalles de la película -->
+<div id="movieInfoModal" class="movie-info-modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="movieDetails"></div> <!-- Aquí se llenará la información de la película -->
+    </div>
+</div>
+    
+
     <!--Containers Movies-->
     <h1 class="tittle1">Movies</h1>
     <section class="cards__movies">

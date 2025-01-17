@@ -1,4 +1,4 @@
-/* 19 peliculas */
+
 export const peliculas =[
         {
             titulo: "Batman Begins",

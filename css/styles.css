@@ -7,7 +7,13 @@ body{
 }
 /* Estilos de el buscador */
 
-/* Variables de color para el tema general */
+/* Botón sin estilos de fondo ni borde */
+.buscarbtn {
+    background: transparent;
+    border: 0;
+    outline: 0;
+    width: 30px;
+}
 :root {
     --bg: #F0F0F0;
     --input-bg: white;
@@ -28,21 +34,19 @@ body{
     padding: 0.75rem;
     max-width: 81rem; /* Tamaño  en pantalla grande */
     width: 95%;
-    height: 50px;
+    height: fit-content;
     box-shadow: rgb(149, 157, 168, 0.2) 0px 8px 24px;  /* Sombra suave */
 }
 /* Fila para alinear elementos */
 .row {
     display: flex;
     align-items: center;
-    justify-content: space-around;
 }
 /* Botón sin estilos de fondo ni borde */
-.buscarbtn {
+button {
     background: transparent;
     border: 0;
     outline: 0;
-    width: 30px;
 }
 /* Entrada de texto en la barra de búsqueda */
 input {
@@ -105,6 +109,96 @@ input {
         font-size: 0.8rem; /* Reducir el tamaño de fuente en móviles */
     }
 }
+/* Estilos para el modal */
+/* Estilos del modal */
+.movie-info-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijado en la pantalla */
+    z-index: 1000; /* Asegúrate de que el modal esté encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.movie-info{
+    margin-left: 20px;
+}
+/* Estilos del contenido del modal */
+.modal-content {
+    background-color: white; /* Fondo blanco para el contenido */
+    border-radius: 8px; /* Bordes redondeados */
+    width: 90%; /* Tamaño del modal */
+    max-width: 800px; /* Limitar tamaño máximo */
+    padding: 20px;
+    position: relative; /* Necesario para posicionar el botón de cierre */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    
+}
+
+/* Estilos para el botón de cierre */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+/* Efecto de hover en el botón de cierre */
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Estilo para la información de la película */
+#movieDetails {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #333;
+    
+}
+.movie-details{
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Estilo para los encabezados dentro del modal */
+#movieDetails h3 {
+    margin-bottom: 10px;
+    color: #000000; /* Color para los encabezados */
+}
+
+/* Estilo para los párrafos de detalles */
+#movieDetails p {
+    margin: 10px 0;
+}
+
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+}
+.movie-image{
+    width: 100px;
+}
+
+.btn1{
+    background-color: #b8ade9;
+    border-radius: 10px;
+    margin-top: 90px;
+    width: 75px;
+    padding: 3px;
+}
+
 
 /*titulo principal*/
 
