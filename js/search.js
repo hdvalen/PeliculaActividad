@@ -46,8 +46,9 @@ inputBox.addEventListener('keyup', () => {
 
 // Mostrar información de una película en el modal
 
-export const showMovieDetails = (titulo, reparto, duracion, genero, fechaLanzamiento)  => {
+export const showMovieDetails = (titulo)  => {
     const movie = peliculas.find((pelicula) => pelicula.titulo.toLowerCase() === titulo.toLowerCase());
+
     if (movie) {
         console.log("Se hizo clic en:", movie.titulo);
         console.log("Información de la película:", movie);
@@ -61,9 +62,10 @@ export const showMovieDetails = (titulo, reparto, duracion, genero, fechaLanzami
                     <h3>${movie.titulo}</h3>
                     <p><strong>Descripción:</strong> ${movie.descripcion}</p>
                 </div>
+     
                 <div class="card-footer text-center">
                     <button class="btn1" data-bs-toggle="modal" data-bs-target="#movieModal" 
-                        onclick="fillModal('')">
+                        onclick="fillModal('${movie.titulo}', '${movie.reparto.join(", ")}', '${movie.duracion}', '${movie.genero}', '${movie.fechaLanzamiento}')">
                         Ver mas
                     </button>
                 </div>
@@ -80,7 +82,7 @@ export const showMovieDetails = (titulo, reparto, duracion, genero, fechaLanzami
         document.querySelector(".close").onclick = closeModal;
         movieInfoModal.onclick = (e) => {
             if (e.target === movieInfoModal) closeModal();
-        };
+         };
     }
 };
 window.fillModal = (titulo, reparto, duracion, genero, fechaLanzamiento) => {
@@ -91,7 +93,7 @@ window.fillModal = (titulo, reparto, duracion, genero, fechaLanzamiento) => {
     modalBody.innerHTML = `
 
         <p><strong>Reparto:</strong> ${reparto}</p>
-        <p><strong>Duración:</strong> ${duracion} minutos</p>
+        <p><strong>Duración:</strong> ${duracion}</p>
         <p><strong>Género:</strong> ${genero}</p>
         <p><strong>Fecha de lanzamiento:</strong> ${fechaLanzamiento}</p>
         

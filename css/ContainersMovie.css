@@ -27,3 +27,9 @@
     max-height: 200px; /* Limita la altura */
     object-fit: cover;
 }
+@media (max-width: 768px) {
+    .tittle1{
+        position: relative;
+        right: 460px;
+    }
+}
