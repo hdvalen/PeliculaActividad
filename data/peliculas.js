@@ -6,7 +6,7 @@ export const peliculas =[
             genero: "Superhéroes",
             duracion: "140 minutos",
             reparto: "Christian Bale, Michael Caine, Liam Neeson",
-            FechaLanzamiento: "15 de junio de 2005",
+            fechaLanzamiento: "15 de junio de 2005",
             image:"../images/batman begins.jpg"
         },
         {
@@ -15,7 +15,7 @@ export const peliculas =[
             genero: "Superhéroes",
             duracion: "152 minutos",
             reparto: "Christian Bale, Heath Ledger, Aaron Eckhart",
-            FechaLanzamiento: "8 de julio de 2008",
+            fechaLanzamiento: "8 de julio de 2008",
             image:"../images/The Dark Knight.jpg"
         },
         {
@@ -24,7 +24,7 @@ export const peliculas =[
             genero: "Superhéroes",
             duracion: "164 minutos",
             reparto: "Christian Bale, Tom Hardy, Anne Hathaway",
-            FechaLanzamiento: "20 de julio de 2012",
+            fechaLanzamiento: "20 de julio de 2012",
             image:"../images/The Dark Knight Rises.jpg"
         },
         {
@@ -33,7 +33,8 @@ export const peliculas =[
             genero: "Ciencia ficción",
             duracion: "143 minutos",
             reparto: "Henry Cavill, Amy Adams, Michael Shannon",
-            FechaLanzamiento: "14 de junio de 2013"
+            fechaLanzamiento: "14 de junio de 2013",
+            image:"../images/Superman Man of Steel.jpg"
         },
         {
             titulo: "Batman v Superman: Dawn of Justice",
@@ -41,7 +42,8 @@ export const peliculas =[
             genero: "Superhéroes",
             duracion: "151 minutos",
             reparto: "Ben Affleck, Henry Cavill, Gal Gadot",
-            FechaLanzamiento: "25 de marzo de 2016"
+            fechaLanzamiento: "25 de marzo de 2016",
+            image:"../images/Batman v Superman Dawn of Justice.jpg"
         },
         {
             titulo: "Wonder Woman",
@@ -49,7 +51,8 @@ export const peliculas =[
             genero: "Acción",
             duracion: "141 minutos",
             reparto: "Gal Gadot, Chris Pine, Robin Wright",
-            FechaLanzamiento: "2 de junio de 2017"
+            fechaLanzamiento: "2 de junio de 2017",
+            image:"../images/Wonder Woman.jpeg"
         },
         {
             titulo: "Justice League",
@@ -57,7 +60,8 @@ export const peliculas =[
             genero: "Aventura",
             duracion: "120 minutos",
             reparto: "Ben Affleck, Henry Cavill, Gal Gadot",
-            FechaLanzamiento: "17 de noviembre de 2017"
+            fechaLanzamiento: "17 de noviembre de 2017",
+            image:"../images/Justice League.jpg"
         },
         {
             titulo: "Aquaman",
@@ -65,7 +69,8 @@ export const peliculas =[
             genero: "Acción",
             duracion: "143 minutos",
             reparto: "Jason Momoa, Amber Heard, Nicole Kidman",
-            FechaLanzamiento: "21 de diciembre de 2018"
+            fechaLanzamiento: "21 de diciembre de 2018",
+            image:"../images/Aquaman.png"
         },
         {
             titulo: "Shazam",
@@ -73,7 +78,8 @@ export const peliculas =[
             genero: "Fantasía",
             duracion: "132 minutos",
             reparto: "Zachary Levi, Asher Angel, Mark Strong",
-            FechaLanzamiento: "5 de abril de 2019"
+            fechaLanzamiento: "5 de abril de 2019",
+            image:"../images/Shazam.jpg"
         },
         {
             titulo: "Birds of Prey",
@@ -81,15 +87,17 @@ export const peliculas =[
             genero: "Acción",
             duracion: "109 minutos",
             reparto: "Margot Robbie, Mary Elizabeth Winstead, Jurnee Smollett-Bell",
-            FechaLanzamiento: " de febrero de 2020"
+            fechaLanzamiento: " de febrero de 2020",
+            image:"../images/Birds of Prey.jpg"
         },
-        {/*falta imagen*/
+        {
             titulo: "The Suicide Squad",
             descripcion: "Un grupo de villanos es reclutado por el gobierno para misiones suicidas con pocas probabilidades de éxito.",
             genero: "Crimen",
             duracion: "132 minutos",
             reparto: "Margot Robbie, Idris Elba, John Cena",
-            FechaLanzamiento: "6 de agosto de 2021"
+            fechaLanzamiento: "6 de agosto de 2021",
+            image:"../images/The suicide squad.jpeg"
         },
         {
             titulo: "Zack Snyder's Justice League",
@@ -97,7 +105,8 @@ export const peliculas =[
             genero: "Aventura",
             duracion: "242 minutos",
             reparto: "Ben Affleck, Henry Cavill, Gal Gadot",
-            FechaLanzamiento: "18 de marzo de 2021"
+            fechaLanzamiento: "18 de marzo de 2021",
+            image:"../images/Zack Snyder's Justice League.jpeg"
         },
         {
             titulo: "The Flash",
@@ -105,7 +114,8 @@ export const peliculas =[
             genero: "Ciencia ficción",
             duracion: "155 minutos",
             reparto: "Ezra Miller, Michael Keaton, Ben Affleck",
-            FechaLanzamiento: "16 de junio de 2023"
+            fechaLanzamiento: "16 de junio de 2023",
+            image:"../images/The Flash.jpg"
         },
         {
             titulo: "Black Adam",
@@ -113,7 +123,8 @@ export const peliculas =[
             genero: "Acción",
             duracion: "125 minutos",
             reparto: "Dwayne Johnson, Aldis Hodge, Pierce Brosnan",
-            FechaLanzamiento: "21 de octubre de 2022"
+            fechaLanzamiento: "21 de octubre de 2022",
+            image:"../images/Black Adam.jpg"
         },
         {
             titulo: "Superman II",
@@ -121,7 +132,8 @@ export const peliculas =[
             genero: "Ciencia ficción",
             duracion: "127 minutos",
             reparto: "Christopher Reeve, Gene Hackman, Marlon Brando",
-            FechaLanzamiento: "4 de diciembre de 1980"
+            fechaLanzamiento: "4 de diciembre de 1980",
+            image:"../images/Superman II.png"
         },
         {
             titulo: "Superman Returns",
@@ -129,7 +141,8 @@ export const peliculas =[
             genero: "Ciencia ficción",
             duracion: "154 minutos",
             reparto: "Brandon Routh, Kate Bosworth, Kevin Spacey",
-            FechaLanzamiento: "28 de junio de 2006"
+            fechaLanzamiento: "28 de junio de 2006",
+            image:"../images/Superman Returns.jpg"
         },
         {
             titulo: "The Lego Batman Movie",
@@ -137,7 +150,8 @@ export const peliculas =[
             genero: "Aventura",
             duracion: "104 minutos",
             reparto: "Will Arnett, Michael Cera, Rosario Dawson",
-            FechaLanzamiento: "10 de febrero de 2017"
+            fechaLanzamiento: "10 de febrero de 2017",
+            image:"../images/The Lego Batman Movie.jpg"
         },
         {
             titulo: "Teen Titans Go! To the Movies",
@@ -145,7 +159,8 @@ export const peliculas =[
             genero: "Aventura",
             duracion: "84 minutos",
             reparto: "Greg Cipes, Scott Menville, Khary Payton",
-            FechaLanzamiento: "27 de julio de 2018"
+            fechaLanzamiento: "27 de julio de 2018",
+            image:"../images/Teen Titans Go! To the Movies.jpg"
         },
         {
             titulo: "Green Lantern",
@@ -153,7 +168,8 @@ export const peliculas =[
             genero: "Ciencia ficción",
             duracion: "114 minutos",
             reparto: "Ryan Reynolds, Blake Lively, Peter Sarsgaard",
-            FechaLanzamiento: "17 de junio de 2011"
+            fechaLanzamiento: "17 de junio de 2011",
+            image:"../images/Green Lantern.jpg"
     }
 
     ]

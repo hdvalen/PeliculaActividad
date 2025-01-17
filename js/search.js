@@ -1,58 +1,67 @@
 import { peliculas } from "../data/peliculas.js";
 
-//En este modulo se desarrollará la barra de búsqueda
-//Posibles resultados de búsqueda
+// Función para buscar películas
 export const SearchList = (peliculas, searchTerm = '') => {
-    let movieName = [];
-    for (const {titulo} of peliculas) {
-        if (titulo.toLowerCase().includes(searchTerm.toLowerCase())) {
-            movieName.push(titulo);
-        }
-    }
-    return movieName;
-}
-
-export const resultBox = document.querySelector(".results"); //Resultados de búsqueda
-export const inputBox = document.querySelector(".search-bar"); // Campo de entrada de texto
-export const movieInfo = document.getElementById("movieInfo");
-
-
-//Representa resultados de búsqueda
-export const displayResults = function (result) { 
-    const resultHTML = result.map(function (movieInfo) {return `<li onclick="selectInput('${movieInfo}')">${movieInfo}</li>`;});
-    resultBox.innerHTML = '<ul>' + resultHTML.join ("") + '</ul>';
+    return peliculas.filter(({ titulo }) =>
+        titulo.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 };
-// Detecta la pulsación sobre la barra de búsqueda
-inputBox.onkeyup = function (e) {
-    let result = [];
-    const input = inputBox.value.toLowerCase();
-    
-    if (input.length === 0) {
-        resultBox.innerHTML = "";
+
+// Mostrar resultados de búsqueda
+export const displayResults = (results) => {
+    const resultBox = document.querySelector(".results");
+    const resultHTML = results
+        .map((movie) => `<li data-title="${movie.titulo}">${movie.titulo}</li>`)
+        .join('');
+    resultBox.innerHTML = `<ul>${resultHTML}</ul>`;
+    attachClickEvent(); // Agregar evento a cada resultado
+};
+
+// Mostrar información de la película en un modal
+export const showMovieDetails = (movie) => {
+    const modal = document.getElementById("movieInfoModal");
+    const modalContent = document.getElementById("movieDetails");
+    modalContent.innerHTML = `
+        <h3>${movie.titulo}</h3>
+        <p><strong>Descripción:</strong> ${movie.descripcion}</p>
+        <p><strong>Reparto:</strong> ${movie.reparto.join(", ")}</p>
+        <p><strong>Duración:</strong> ${movie.duracion}</p>
+        <p><strong>Género:</strong> ${movie.genero}</p>
+        <p><strong>Fecha de lanzamiento:</strong> ${movie.fechaLanzamiento}</p>
+    `;
+    modal.style.display = "flex";
+
+    // Cerrar el modal al hacer clic en la "x" o fuera del contenido
+    const closeModal = () => {
+        modal.style.display = "none";
+    };
+
+    document.querySelector(".close").onclick = closeModal;
+    modal.onclick = (e) => {
+        if (e.target === modal) closeModal();
+    };
+};
+
+// Agregar evento a cada resultado
+const attachClickEvent = () => {
+    const results = document.querySelectorAll(".results li");
+    results.forEach((item) => {
+        item.addEventListener("click", (e) => {
+            const movieTitle = e.target.getAttribute("data-title");
+            const selectedMovie = peliculas.find((movie) => movie.titulo === movieTitle);
+            if (selectedMovie) showMovieDetails(selectedMovie);
+        });
+    });
+};
+
+// Lógica de búsqueda
+const inputBox = document.querySelector(".search-bar");
+inputBox.onkeyup = function () {
+    const searchTerm = inputBox.value.trim();
+    if (searchTerm === '') {
+        document.querySelector(".results").innerHTML = '';
         return;
     }
-    
-    if (input.length) {
-        result = SearchList(peliculas, '').filter ((movieInfo) => {return movieInfo.toLowerCase().includes(input);});
-        
-        displayResults(result);
-    }
+    const results = SearchList(peliculas, searchTerm);
+    displayResults(results);
 };
-
-//FIXME
-export const moviesInfo = (description) => {
-    return peliculas.find((peliculas) => peliculas.description === description);
-}
-
-export function selectInput(item) {
-    const selected = item.innerText;
-    inputBox.value = selected;
-    resultBox.innerHTML = "";
-
-    if (moviesInfo[selected]) {
-        movieInfo.textContent = `${moviesInfo[selected]}`;
-        movieInfo.style.display = "block";
-    } else {
-        bookText.style.display = "none";
-    }
-}
